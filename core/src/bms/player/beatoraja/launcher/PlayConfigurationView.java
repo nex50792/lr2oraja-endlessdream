@@ -174,6 +174,8 @@ public class PlayConfigurationView implements Initializable {
 	@FXML
 	private CheckBox bpmguide;
 	@FXML
+	private CheckBox autoscratch;
+	@FXML
 	private ComboBox<Integer> gaugeautoshift;
 	@FXML
 	private ComboBox<Integer> bottomshiftablegauge;
@@ -566,6 +568,7 @@ public class PlayConfigurationView implements Initializable {
 		notesdisplaytimingautoadjust.setSelected(player.isNotesDisplayTimingAutoAdjust());
 
 		bpmguide.setSelected(player.isBpmguide());
+		autoscratch.setSelected(player.isAutoscratch());
 		gaugeautoshift.setValue(player.getGaugeAutoShift());
 		bottomshiftablegauge.setValue(player.getBottomShiftableGauge());
 
@@ -686,6 +689,7 @@ public class PlayConfigurationView implements Initializable {
 		player.setPmsSwitchLaneCover(pmsSwitchLaneCover.isSelected());
 
 		player.setBpmguide(bpmguide.isSelected());
+		player.setAutoscratch(autoscratch.isSelected());
 		player.setGaugeAutoShift(gaugeautoshift.getValue());
 		player.setBottomShiftableGauge(bottomshiftablegauge.getValue());
 		player.setCustomJudge(customjudge.isSelected());

@@ -456,6 +456,24 @@ public class BMSPlayer extends MainState {
 
 		}
 
+		// AUTO SCRATCH
+		// 全ての譜面オプション適用後に掛ける。先に掛けると、スクラッチレーンを含む譜面オプション
+		// (RANDOM EX等)で別のノーツがスクラッチレーンへ移動してきた場合に自動化から漏れるため。
+		// 譜面を書き換えるので通常プレイ限定。リプレイ再生はキーログと食い違い、ゴーストバトルは
+		// ノーツ数が変わりゴーストが無効化され、練習モードは譜面オプションをPracticePropertyが持つ。
+		if (config.isAutoscratch() && autoplay.mode == BMSPlayerMode.Mode.PLAY
+				&& ghostBattle.isEmpty() && model.getMode().scratchKey.length > 0) { // 皿無しモードは対象外
+			PatternModifier as = new AutoplayModifier(model.getMode().scratchKey);
+			as.modify(model);
+			// AutoplayModifierはNONEかASSISTしか返さないため2を直書きする。
+			// スクラッチノーツを持たない譜面ではNONEが返り、アシスト扱いにならない
+			if (as.getAssistLevel() != PatternModifier.AssistLevel.NONE) {
+				assist = Math.max(assist, 2);
+				score = false;
+				logger.info("譜面オプション : AUTO SCRATCH (ASSIST)");
+			}
+		}
+
 		if(HSReplay != null && HSReplay.config != null) {
 			//保存されたHSオプションログからHSオプション再現
 			config.getPlayConfig(model.getMode()).setPlayconfig(HSReplay.config);

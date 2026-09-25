@@ -149,6 +149,10 @@ public final class PlayerConfig {
 	 * アシストオプション:BPMガイド
 	 */
 	private boolean bpmguide = false;
+	/**
+	 * アシストオプション:オートスクラッチ
+	 */
+	private boolean autoscratch = false;
 
 	private int extranoteType = 0;
 	private int extranoteDepth = 0;
@@ -346,6 +350,14 @@ public final class PlayerConfig {
 
 	public void setBpmguide(boolean bpmguide) {
 		this.bpmguide = bpmguide;
+	}
+
+	public boolean isAutoscratch() {
+		return autoscratch;
+	}
+
+	public void setAutoscratch(boolean autoscratch) {
+		this.autoscratch = autoscratch;
 	}
 
 	public int getGaugeAutoShift() {

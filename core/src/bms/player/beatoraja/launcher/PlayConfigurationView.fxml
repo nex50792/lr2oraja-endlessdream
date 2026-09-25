@@ -274,6 +274,7 @@
                                          </rowConstraints>
                                          <Label text="%ASSIST_OPTION" GridPane.rowIndex="0" />
                                          <CheckBox fx:id="bpmguide" mnemonicParsing="false" text="%BPM_GUIDE" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                         <CheckBox fx:id="autoscratch" mnemonicParsing="false" text="%AUTO_SCRATCH" GridPane.columnIndex="2" GridPane.rowIndex="0" />
                                          <Label text="%OPTIONS_MISC" GridPane.rowIndex="1" />
                                          <CheckBox fx:id="showhiddennote" mnemonicParsing="false" text="%SHOW_HIDDEN_NOTE" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                          <CheckBox fx:id="judgeregion" mnemonicParsing="false" text="%JUDGE_REGION" GridPane.columnIndex="1" GridPane.rowIndex="1" />
